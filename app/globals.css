@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf6ef;
+  --foreground: #221d17;
+  --gold: #9c7530;
+  --gold-bright: #c9974f;
+  --surface: #f3ecdf;
+  --surface-2: #ece1cb;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --font-sans: var(--font-assistant);
+  --font-display: var(--font-rubik);
+}
+
+html {
+  color-scheme: light;
+}
+
+html.lang-ar {
+  --font-sans: var(--font-tajawal);
+  --font-display: var(--font-cairo);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--gold) transparent;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(115deg, #d9ab55 0%, #a67c3d 50%, #6b4e21 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-noise {
+  background-image: radial-gradient(circle at 1px 1px, rgba(203, 162, 90, 0.08) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
+}
