@@ -204,3 +204,110 @@ export const dashboardText: Record<Locale, DashboardText> = {
   en: dashboardTextEn,
   ar: dashboardTextEn,
 };
+
+// Platform marketing/landing page copy. Hebrew and English only (Arabic
+// falls back to English) — same scope decision as the dashboard.
+type LandingText = {
+  ownerLogin: string;
+  eyebrow: string;
+  heroTitleLine1: string;
+  heroTitleLine2: string;
+  heroSubtitle: string;
+  ctaCreateStore: string;
+  ctaLiveExample: string;
+  steps: { number: string; title: string; body: string }[];
+  featuresHeading: string;
+  features: { title: string; body: string }[];
+  finalHeading: string;
+  finalSubtitle: string;
+  finalCta: string;
+  footer: string;
+};
+
+const landingTextHe: LandingText = {
+  ownerLogin: "כניסת בעלי חנויות",
+  eyebrow: "לעסקים קטנים",
+  heroTitleLine1: "לעסק שלכם מגיע",
+  heroTitleLine2: "חלון ראווה משלו",
+  heroSubtitle:
+    "פותחים חנות אונליין עם כתובת משלכם תוך דקות, מעלים מוצרים מהדשבורד, והלקוחות מזמינים ישירות בוואטסאפ — בלי מפתח, בלי סליקה, בלי סיבוכים.",
+  ctaCreateStore: "פתחו חנות בחינם",
+  ctaLiveExample: "לדוגמה חיה",
+  steps: [
+    {
+      number: "01",
+      title: "נרשמים ובוחרים כתובת",
+      body: "יוצרים חשבון בדקה ובוחרים את שם הסאב-דומיין של החנות — הכתובת שלכם באוויר מיד.",
+    },
+    {
+      number: "02",
+      title: "מעלים מוצרים מהדשבורד",
+      body: "שם, מחיר ותמונה מהטלפון — התמונה נדחסת ומותאמת אוטומטית, בלי צורך בעריכה.",
+    },
+    {
+      number: "03",
+      title: "מקבלים הזמנות בוואטסאפ",
+      body: "כל לקוח שלוחץ 'הזמנה' פותח לכם שיחת וואטסאפ מוכנה עם שם המוצר והמחיר. בלי סליקה, בלי מורכבות.",
+    },
+  ],
+  featuresHeading: "הכל כלול",
+  features: [
+    { title: "כתובת אישית לחנות", body: "כל עסק מקבל סאב-דומיין משלו תחת הדומיין הראשי — נראה מקצועי מהיום הראשון." },
+    { title: "הזמנות ישירות לוואטסאפ", body: "בלי עמוד תשלום מסובך. הלקוח שולח הודעה, אתם סוגרים את העסקה כרגיל." },
+    { title: "דשבורד ניהול פשוט", body: "מוסיפים, עורכים ומוחקים מוצרים בעצמכם — בלי לגעת בקוד ובלי לחכות למפתח." },
+    { title: "תמונות שמטופלות אוטומטית", body: "מעלים תמונה מהטלפון והמערכת דואגת לדחיסה ולאיכות התצוגה, בכל מכשיר." },
+    { title: "תלת-לשוני מהקופסה", body: "עברית, ערבית ואנגלית זמינות ללקוחות שלכם בלחיצת כפתור, בלי עבודה נוספת." },
+    { title: "בנוי למובייל", body: "רוב הלקוחות גולשים מהטלפון — כך גם החנות שלכם נראית ומתפקדת הכי טוב שם." },
+  ],
+  finalHeading: "מוכנים להיות אונליין?",
+  finalSubtitle: "ההרשמה חינמית ולוקחת פחות מדקה. אין צורך בכרטיס אשראי.",
+  finalCta: "פתחו את החנות שלכם",
+  footer: "Vitrina — פלטפורמת חנויות לעסקים קטנים",
+};
+
+const landingTextEn: LandingText = {
+  ownerLogin: "Store owner login",
+  eyebrow: "For small businesses",
+  heroTitleLine1: "Your business deserves",
+  heroTitleLine2: "its own storefront",
+  heroSubtitle:
+    "Open an online store with your own address in minutes, add products from your dashboard, and customers order straight to WhatsApp — no developer, no payment gateway, no hassle.",
+  ctaCreateStore: "Create your store for free",
+  ctaLiveExample: "See a live example",
+  steps: [
+    {
+      number: "01",
+      title: "Sign up and choose your address",
+      body: "Create an account in a minute and pick your store's subdomain — your address is live instantly.",
+    },
+    {
+      number: "02",
+      title: "Add products from your dashboard",
+      body: "Name, price, and a photo from your phone — the image is compressed and optimized automatically, no editing needed.",
+    },
+    {
+      number: "03",
+      title: "Get orders on WhatsApp",
+      body: "Every customer who taps 'Order' opens a ready-made WhatsApp chat with the product name and price. No checkout, no complexity.",
+    },
+  ],
+  featuresHeading: "Everything included",
+  features: [
+    { title: "Your own store address", body: "Every business gets its own subdomain under the main domain — looks professional from day one." },
+    { title: "Orders straight to WhatsApp", body: "No complicated checkout page. The customer sends a message, you close the sale as usual." },
+    { title: "Simple management dashboard", body: "Add, edit, and delete products yourself — no code, no waiting on a developer." },
+    { title: "Images handled automatically", body: "Upload a photo from your phone and the system takes care of compression and display quality on every device." },
+    { title: "Trilingual out of the box", body: "Hebrew, Arabic, and English are available to your customers at the tap of a button, no extra work." },
+    { title: "Built for mobile", body: "Most customers browse from their phone — so your store looks and works best there too." },
+  ],
+  finalHeading: "Ready to go online?",
+  finalSubtitle: "Signing up is free and takes less than a minute. No credit card required.",
+  finalCta: "Open your store",
+  footer: "Vitrina — a storefront platform for small businesses",
+};
+
+export const landingText: Record<Locale, LandingText> = {
+  he: landingTextHe,
+  en: landingTextEn,
+  ar: landingTextEn,
+};
