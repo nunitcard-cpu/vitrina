@@ -90,3 +90,117 @@ export const tagLabels: Record<Locale, Record<TagKey, string>> = {
   ar: { New: "جديد", Bestseller: "الأكثر مبيعاً", Sale: "عرض" },
   en: { New: "New", Bestseller: "Bestseller", Sale: "Sale" },
 };
+
+// Store-owner dashboard chrome. Hebrew and English only for now (Arabic
+// falls back to English) — this is an internal admin tool, not the
+// customer-facing storefront, so full 3-locale coverage isn't needed yet.
+type DashboardText = {
+  signupTitle: string;
+  storeNameLabel: string;
+  subdomainLabel: string;
+  whatsappLabel: string;
+  whatsappPlaceholder: string;
+  emailLabel: string;
+  passwordLabel: string;
+  createStoreButton: string;
+  alreadyHaveStore: string;
+  logIn: string;
+  loginTitle: string;
+  checkEmailMessage: string;
+  logInButton: string;
+  newHere: string;
+  createStoreLink: string;
+  logOut: string;
+  noProducts: string;
+  addProductHeading: string;
+  productNameLabel: string;
+  priceLabel: string;
+  originalPriceLabel: string;
+  tagLabel: string;
+  tagNone: string;
+  photoLabel: string;
+  uploadingImage: string;
+  previewAlt: string;
+  saving: string;
+  saveChanges: string;
+  addProductButton: string;
+  editButton: string;
+  cancelButton: string;
+  deleteButton: string;
+};
+
+const dashboardTextHe: DashboardText = {
+  signupTitle: "פתחו את החנות שלכם",
+  storeNameLabel: "שם החנות",
+  subdomainLabel: "סאב-דומיין",
+  whatsappLabel: "מספר וואטסאפ (קידומת מדינה + ספרות, בלי +)",
+  whatsappPlaceholder: "972501234567",
+  emailLabel: "אימייל",
+  passwordLabel: "סיסמה",
+  createStoreButton: "צור חנות",
+  alreadyHaveStore: "כבר יש לך חנות?",
+  logIn: "התחברות",
+  loginTitle: "כניסת בעלי חנויות",
+  checkEmailMessage: "בדקו את המייל שלכם לאישור החשבון, ואז התחברו כאן.",
+  logInButton: "התחברות",
+  newHere: "חדשים כאן?",
+  createStoreLink: "פתחו חנות",
+  logOut: "התנתקות",
+  noProducts: "אין עדיין מוצרים — הוסיפו את הראשון למטה.",
+  addProductHeading: "הוספת מוצר",
+  productNameLabel: "שם המוצר",
+  priceLabel: "מחיר (₪)",
+  originalPriceLabel: "מחיר קודם (אופציונלי, מוצג עם קו חוצה)",
+  tagLabel: "תגית",
+  tagNone: "ללא",
+  photoLabel: "תמונת מוצר",
+  uploadingImage: "מעלה תמונה…",
+  previewAlt: "תצוגה מקדימה",
+  saving: "שומר…",
+  saveChanges: "שמור שינויים",
+  addProductButton: "הוסף מוצר",
+  editButton: "עריכה",
+  cancelButton: "ביטול",
+  deleteButton: "מחיקה",
+};
+
+const dashboardTextEn: DashboardText = {
+  signupTitle: "Create your store",
+  storeNameLabel: "Store name",
+  subdomainLabel: "Subdomain",
+  whatsappLabel: "WhatsApp number (country code + digits, no +)",
+  whatsappPlaceholder: "972501234567",
+  emailLabel: "Email",
+  passwordLabel: "Password",
+  createStoreButton: "Create store",
+  alreadyHaveStore: "Already have a store?",
+  logIn: "Log in",
+  loginTitle: "Store owner login",
+  checkEmailMessage: "Check your email to confirm your account, then log in here.",
+  logInButton: "Log in",
+  newHere: "New here?",
+  createStoreLink: "Create a store",
+  logOut: "Log out",
+  noProducts: "No products yet — add your first one below.",
+  addProductHeading: "Add a product",
+  productNameLabel: "Product name",
+  priceLabel: "Price (₪)",
+  originalPriceLabel: "Original price (optional, shown crossed out)",
+  tagLabel: "Tag",
+  tagNone: "None",
+  photoLabel: "Product photo",
+  uploadingImage: "Uploading image…",
+  previewAlt: "Preview",
+  saving: "Saving…",
+  saveChanges: "Save changes",
+  addProductButton: "Add product",
+  editButton: "Edit",
+  cancelButton: "Cancel",
+  deleteButton: "Delete",
+};
+
+export const dashboardText: Record<Locale, DashboardText> = {
+  he: dashboardTextHe,
+  en: dashboardTextEn,
+  ar: dashboardTextEn,
+};

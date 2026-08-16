@@ -2,6 +2,8 @@
 
 import { useRef, useState, useTransition } from "react";
 import { uploadProductImage } from "@/lib/image-upload";
+import { useLanguage } from "@/app/lib/LanguageContext";
+import { dashboardText } from "@/app/lib/i18n";
 
 type ProductFormValues = {
   id?: string;
@@ -28,6 +30,8 @@ export default function ProductForm({
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
   const formRef = useRef<HTMLFormElement>(null);
+  const { locale } = useLanguage();
+  const t = dashboardText[locale];
 
   async function handleFileChange(event: React.ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
@@ -62,7 +66,7 @@ export default function ProductForm({
       <input type="hidden" name="imagePath" value={imagePath} />
 
       <label className="flex flex-col gap-1 text-sm text-foreground/80">
-        Product name
+        {t.productNameLabel}
         <input
           name="name"
           defaultValue={product?.name}
@@ -72,7 +76,7 @@ export default function ProductForm({
       </label>
 
       <label className="flex flex-col gap-1 text-sm text-foreground/80">
-        Price (₪)
+        {t.priceLabel}
         <input
           name="price"
           type="number"
@@ -80,30 +84,32 @@ export default function ProductForm({
           min="0"
           defaultValue={product?.price}
           required
+          dir="ltr"
           className="rounded-lg border border-gold/20 bg-surface px-3 py-2 text-foreground"
         />
       </label>
 
       <label className="flex flex-col gap-1 text-sm text-foreground/80">
-        Original price (optional, shown crossed out)
+        {t.originalPriceLabel}
         <input
           name="originalPrice"
           type="number"
           step="0.01"
           min="0"
           defaultValue={product?.originalPrice ?? undefined}
+          dir="ltr"
           className="rounded-lg border border-gold/20 bg-surface px-3 py-2 text-foreground"
         />
       </label>
 
       <label className="flex flex-col gap-1 text-sm text-foreground/80">
-        Tag
+        {t.tagLabel}
         <select
           name="tag"
           defaultValue={product?.tag ?? ""}
           className="rounded-lg border border-gold/20 bg-surface px-3 py-2 text-foreground"
         >
-          <option value="">None</option>
+          <option value="">{t.tagNone}</option>
           <option value="New">New</option>
           <option value="Bestseller">Bestseller</option>
           <option value="Sale">Sale</option>
@@ -111,13 +117,13 @@ export default function ProductForm({
       </label>
 
       <label className="flex flex-col gap-1 text-sm text-foreground/80">
-        Product photo
+        {t.photoLabel}
         <input type="file" accept="image/*" onChange={handleFileChange} />
       </label>
-      {uploading && <p className="text-xs text-foreground/50">Uploading image…</p>}
+      {uploading && <p className="text-xs text-foreground/50">{t.uploadingImage}</p>}
       {imagePath && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={imagePath} alt="Preview" className="h-32 w-32 rounded-lg object-cover" />
+        <img src={imagePath} alt={t.previewAlt} className="h-32 w-32 rounded-lg object-cover" />
       )}
       {error && <p className="text-xs text-red-500">{error}</p>}
 
@@ -126,7 +132,7 @@ export default function ProductForm({
         disabled={uploading || isPending || !imagePath}
         className="rounded-full bg-gradient-to-r from-gold-bright to-gold px-4 py-2.5 text-sm font-semibold text-[#171009] disabled:opacity-50"
       >
-        {isPending ? "Saving…" : product ? "Save changes" : "Add product"}
+        {isPending ? t.saving : product ? t.saveChanges : t.addProductButton}
       </button>
     </form>
   );

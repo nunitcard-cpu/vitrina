@@ -4,6 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import ProductForm from "./product-form";
 import { updateProduct, deleteProduct } from "@/app/dashboard/actions";
+import { useLanguage } from "@/app/lib/LanguageContext";
+import { dashboardText } from "@/app/lib/i18n";
 
 type Row = {
   id: string;
@@ -16,6 +18,8 @@ type Row = {
 
 export default function ProductRow({ tenantId, product }: { tenantId: string; product: Row }) {
   const [editing, setEditing] = useState(false);
+  const { locale } = useLanguage();
+  const t = dashboardText[locale];
 
   if (editing) {
     return (
@@ -31,7 +35,7 @@ export default function ProductRow({ tenantId, product }: { tenantId: string; pr
           onClick={() => setEditing(false)}
           className="mt-2 text-xs text-foreground/50 underline"
         >
-          Cancel
+          {t.cancelButton}
         </button>
       </div>
     );
@@ -58,14 +62,14 @@ export default function ProductRow({ tenantId, product }: { tenantId: string; pr
         onClick={() => setEditing(true)}
         className="rounded-full border border-gold/20 px-3 py-1.5 text-xs text-foreground/80"
       >
-        Edit
+        {t.editButton}
       </button>
       <form action={deleteProduct.bind(null, product.id)}>
         <button
           type="submit"
           className="rounded-full border border-red-400/40 px-3 py-1.5 text-xs text-red-500"
         >
-          Delete
+          {t.deleteButton}
         </button>
       </form>
     </div>
